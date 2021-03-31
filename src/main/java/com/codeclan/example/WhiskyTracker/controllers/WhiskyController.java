@@ -27,19 +27,20 @@ public class WhiskyController {
         return new ResponseEntity<List<Whisky>>(whiskyRepository.findWhiskiesByYear(year), HttpStatus.OK);
     }
 
-//    @GetMapping(value="whiskies/age")
-//    public ResponseEntity<List<Whisky>> getAllWhiskiesOfCertainAgeAndDistilleryQuery(@RequestParam(name="age") int age,
-//                                                                                     @RequestParam(name="distillery") String distillery){
-//        return new ResponseEntity<List<Whisky>>(whiskyRepository.findWhiskiesByAgeAndDistilleryName(age, distillery), HttpStatus.OK);
-//    }
+    @GetMapping(value="whiskies/age")
+    public ResponseEntity<List<Whisky>> getAllWhiskiesOfCertainAgeAndDistilleryQuery(@RequestParam(name="age") int age,
+                                                                                     @RequestParam(name="distillery") String distillery){
+        return new ResponseEntity<List<Whisky>>(whiskyRepository.findWhiskiesByAgeAndDistilleryName(age, distillery), HttpStatus.OK);
+    }
 
     @GetMapping(value="whiskies/region")
     public ResponseEntity<List<Whisky>> getAllWhiskiesByRegionQuery(@RequestParam(name="region") String region){
         return new ResponseEntity<List<Whisky>>(whiskyRepository.findWhiskiesByDistilleryRegion(region), HttpStatus.OK);
     }
 
-    @GetMapping(value="whiskies/age")
-    public ResponseEntity<List<Whisky>> getAllWhiskiesOfCertainAgeGreaterQuery(@RequestParam(name="age") int age){
-        return new ResponseEntity<List<Whisky>>(whiskyRepository.findWhiskiesByAgeGreaterThan(age), HttpStatus.OK);
-    }
+    // extra query
+//    @GetMapping(value="whiskies/age")
+//    public ResponseEntity<List<Whisky>> getAllWhiskiesOfCertainAgeGreaterQuery(@RequestParam(name="age") int age){
+//        return new ResponseEntity<List<Whisky>>(whiskyRepository.findWhiskiesByAgeGreaterThan(age), HttpStatus.OK);
+//    }
 }
